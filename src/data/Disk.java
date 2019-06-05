@@ -21,8 +21,8 @@ public class Disk {
 	public List<String> getData() {
 		return data;
 	}
-	public void setData(List<String> data) {
-		this.data = data;
+	public void setData(Object object) {
+		this.data = (List<String>) object;
 	}
 	public void addData(String temp)
 	{

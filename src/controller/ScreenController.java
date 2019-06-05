@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 import data.Disk;
 import data.Raid;
+import data.Raport;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -17,11 +18,11 @@ import javafx.scene.control.TextField;
 public class ScreenController {
 	@FXML
 	Button readDataButton, firstFaultButton, secondFaultButton, thirdFaultButton, backDataButton, changeFirstDiskButton,
-			changeSecondDiskButton, changeThirdDiskButton;
+			changeSecondDiskButton, changeThirdDiskButton, resetButton;
 	@FXML
 	ListView<String> firstDiskList, secondDiskList, thirdDiskList;
 	@FXML
-	Label inputLabel, lostDataLabel, infoLabel;
+	Label inputLabel, lostDataLabel, infoLabel, firstDiskWarningLabel, secondDiskWarningLabel, thirdDiskWarningLabel;
 	@FXML
 	TextField firstFaultField, secondFaultField, thirdFaultField;
 	Disk disk1;
@@ -38,12 +39,14 @@ public class ScreenController {
 	@FXML
 	public void initialize() {
 		setDisable(true);
+		resetButton.setDisable(true);
 	}
 
 	@FXML
 	public void readData() {
 		String input = "";
 		File file = new File("input.txt");
+		Raport.makeRaport("Wykorzystany plik wejsciowy: " + file.getPath());
 		Scanner in;
 		try {
 			in = new Scanner(file);
@@ -51,6 +54,7 @@ public class ScreenController {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
+		Raport.makeRaport("Dane odczytane z pliku: " + input);
 		// dodanie 0 gdy ci¹g jest zbyt krótki
 		if (input.length() % 8 != 0) {
 			while (input.length() % 8 != 0) {
@@ -60,6 +64,8 @@ public class ScreenController {
 		inputLabel.setText(input);
 		inputLabel.setVisible(true);
 		infoLabel.setVisible(true);
+
+		Raport.makeRaport("Dane uzyte w programie: " + input);
 		for (int i = 0; i < input.length(); i += 8) {
 			disk1.addData(input.substring(i, i + 4));
 			disk2.addData(input.substring(i + 4, i + 8));
@@ -73,9 +79,13 @@ public class ScreenController {
 		ObservableList<String> obsDisk3 = FXCollections.observableArrayList(parityDisk.getData());
 
 		thirdDiskList.setItems(obsDisk3);
-
 		setDisable(false);
+		resetButton.setDisable(false);
 		readDataButton.setDisable(true);
+
+		Raport.makeRaport("Zawartosc dysku 1:  " + Raid.diskAsString(disk1.getData()));
+		Raport.makeRaport("Zawartosc dysku 2:  " + Raid.diskAsString(disk2.getData()));
+		Raport.makeRaport("Zawartosc dysku 3:  " + Raid.diskAsString(parityDisk.getData()));
 	}
 
 	@FXML
@@ -87,10 +97,19 @@ public class ScreenController {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		disk1.setData(Raid.makeError(disk1.getData(), num));
-		ObservableList<String> obsDisk1 = FXCollections.observableArrayList(disk1.getData());
-		firstDiskList.setItems(obsDisk1);
+		if (num > disk1.getData().size() * 4) {
+			firstDiskWarningLabel.setVisible(true);
+			Raport.makeRaport("Liczba wstrzyknietych bledow wieksza niz rozmiar dysku!");
+		} else {
 
+			secondDiskWarningLabel.setVisible(false);
+			disk1.setData(Raid.makeError(disk1.getData(), num));
+			ObservableList<String> obsDisk1 = FXCollections.observableArrayList(disk1.getData());
+			firstDiskList.setItems(obsDisk1);
+
+			Raport.makeRaport("Liczba wstrzyknietych bledow na dysku 1:  " + num);
+			Raport.makeRaport("Dysk 1 po wstrzyknieciu bledow:  " + Raid.diskAsString(disk1.getData()));
+		}
 	}
 
 	@FXML
@@ -101,10 +120,18 @@ public class ScreenController {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		disk2.setData(Raid.makeError(disk2.getData(), num));
-		ObservableList<String> obsDisk2 = FXCollections.observableArrayList(disk2.getData());
-		secondDiskList.setItems(obsDisk2);
+		if (num > disk2.getData().size() * 4) {
+			secondDiskWarningLabel.setVisible(true);
+			Raport.makeRaport("Liczba wstrzyknietych bledow wieksza niz rozmiar dysku!");
+		} else {
+			secondDiskWarningLabel.setVisible(false);
+			disk2.setData(Raid.makeError(disk2.getData(), num));
+			ObservableList<String> obsDisk2 = FXCollections.observableArrayList(disk2.getData());
+			secondDiskList.setItems(obsDisk2);
 
+			Raport.makeRaport("Liczba wstrzyknietych bledow na dysku 2:  " + num);
+			Raport.makeRaport("Dysk 2 po wstrzyknieciu bledow:  " + Raid.diskAsString(disk2.getData()));
+		}
 	}
 
 	@FXML
@@ -115,9 +142,19 @@ public class ScreenController {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		parityDisk.setData(Raid.makeError(parityDisk.getData(), num));
-		ObservableList<String> obsDisk3 = FXCollections.observableArrayList(parityDisk.getData());
-		thirdDiskList.setItems(obsDisk3);
+		if (num > parityDisk.getData().size() * 4) {
+			thirdDiskWarningLabel.setVisible(true);
+			Raport.makeRaport("Liczba wstrzyknietych bledow wieksza niz rozmiar dysku!");
+		} else {
+
+			thirdDiskWarningLabel.setVisible(false);
+			parityDisk.setData(Raid.makeError(parityDisk.getData(), num));
+			ObservableList<String> obsDisk3 = FXCollections.observableArrayList(parityDisk.getData());
+			thirdDiskList.setItems(obsDisk3);
+
+			Raport.makeRaport("Liczba wstrzyknietych bledoww na dysku 3:  " + num);
+			Raport.makeRaport("Dysk 3 po wstrzyknieciu bledow:  " + Raid.diskAsString(parityDisk.getData()));
+		}
 	}
 
 	@FXML
@@ -141,9 +178,17 @@ public class ScreenController {
 		ObservableList<String> obsDisk3 = FXCollections.observableArrayList(parityDisk.getData());
 		thirdDiskList.setItems(obsDisk3);
 
+		Raport.makeRaport("Zawartosc dysku 1 po odzyskaniu danych: " + Raid.diskAsString(disk1.getData()));
+		Raport.makeRaport("Zawartosc dysku 2 po odzyskaniu danych: " + Raid.diskAsString(disk2.getData()));
+		Raport.makeRaport("Zawartosc dysku 3 po odzyskaniu danych: " + Raid.diskAsString(parityDisk.getData()));
+
 		if (Raid.checkDisk(firstDisk) || Raid.checkDisk(secondDisk) || Raid.checkDisk(thirdDisk)) {
 			lostDataLabel.setVisible(true);
+			Raport.makeRaport("UTRACONE DANE!!!");
+			setDisable(true);
+
 		}
+
 	}
 
 	@FXML
@@ -155,6 +200,8 @@ public class ScreenController {
 		ObservableList<String> obsDisk1 = FXCollections.observableArrayList(disk1.getData());
 		firstDiskList.setItems(obsDisk1);
 
+		Raport.makeRaport("Zawartosc dysku 1 po wymianie: " + Raid.diskAsString(disk1.getData()));
+
 	}
 
 	@FXML
@@ -165,6 +212,8 @@ public class ScreenController {
 		ObservableList<String> obsDisk2 = FXCollections.observableArrayList(disk2.getData());
 		secondDiskList.setItems(obsDisk2);
 
+		Raport.makeRaport("Zawartosc dysku 2 po wymianie: " + Raid.diskAsString(disk2.getData()));
+
 	}
 
 	@FXML
@@ -174,6 +223,29 @@ public class ScreenController {
 		parityDisk.setData(Raid.changeDisk(thirdDisk));
 		ObservableList<String> obsDisk3 = FXCollections.observableArrayList(parityDisk.getData());
 		thirdDiskList.setItems(obsDisk3);
+
+		Raport.makeRaport("Zawartosc dysku 3 po wymianie: " + Raid.diskAsString(parityDisk.getData()));
+
+	}
+
+	@FXML
+	public void reset() {
+		setDisable(true);
+		disk1.getData().clear();
+		ObservableList<String> obsDisk1 = FXCollections.observableArrayList(disk1.getData());
+		firstDiskList.setItems(obsDisk1);
+		disk2.getData().clear();
+		ObservableList<String> obsDisk2 = FXCollections.observableArrayList(disk2.getData());
+		secondDiskList.setItems(obsDisk2);
+		parityDisk.getData().clear();
+		ObservableList<String> obsDisk3 = FXCollections.observableArrayList(parityDisk.getData());
+		thirdDiskList.setItems(obsDisk3);
+	
+		Raport.makeRaport("RESET DANYCH!");
+
+
+		readDataButton.setDisable(false);
+		lostDataLabel.setVisible(false);
 
 	}
 

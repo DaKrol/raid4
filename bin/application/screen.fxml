@@ -18,20 +18,36 @@
       <Label layoutX="279.0" layoutY="142.0" text="Dysk 2" />
       <ListView fx:id="thirdDiskList" layoutX="404.0" layoutY="183.0" prefHeight="142.0" prefWidth="174.0" />
       <Label layoutX="474.0" layoutY="142.0" text="Dysk 3" />
-      <Button fx:id="firstFaultButton" layoutX="89.0" layoutY="337.0" mnemonicParsing="false" onAction="#firstFault" text="Wstrzyknij błędy" />
+      <Button fx:id="firstFaultButton" layoutX="72.0" layoutY="336.0" mnemonicParsing="false" onAction="#firstFault" text="Wstrzyknij błędy" />
       <TextField fx:id="firstFaultField" layoutX="17.0" layoutY="337.0" prefHeight="26.0" prefWidth="42.0" />
       <TextField fx:id="secondFaultField" layoutX="209.0" layoutY="336.0" prefHeight="26.0" prefWidth="42.0" />
-      <Button fx:id="secondFaultButton" layoutX="287.0" layoutY="336.0" mnemonicParsing="false" onAction="#secondFault" text="Wstrzyknij błędy" />
+      <Button fx:id="secondFaultButton" layoutX="274.0" layoutY="336.0" mnemonicParsing="false" onAction="#secondFault" text="Wstrzyknij błędy" />
       <Button fx:id="backDataButton" layoutX="232.0" layoutY="430.0" mnemonicParsing="false" onAction="#backData" text="Odzyskaj dane" />
-      <Button fx:id="changeFirstDiskButton" layoutX="50.0" layoutY="373.0" mnemonicParsing="false" onAction="#changeFirstDisk" text="Wymiana dysku" />
-      <Button fx:id="changeSecondDiskButton" layoutX="247.0" layoutY="373.0" mnemonicParsing="false" onAction="#changeSecondDisk" text="Wymiana dysku" />
-      <Button fx:id="changeThirdDiskButton" layoutX="441.0" layoutY="373.0" mnemonicParsing="false" onAction="#changeThirdDisk" text="Wymiana dysku" />
-      <Button fx:id="thirdFaultButton" layoutX="474.0" layoutY="337.0" mnemonicParsing="false" onAction="#thirdFault" text="Wstrzyknij błędy" />
+      <Button fx:id="changeFirstDiskButton" layoutX="48.0" layoutY="386.0" mnemonicParsing="false" onAction="#changeFirstDisk" text="Wymiana dysku" />
+      <Button fx:id="changeSecondDiskButton" layoutX="247.0" layoutY="386.0" mnemonicParsing="false" onAction="#changeSecondDisk" text="Wymiana dysku" />
+      <Button fx:id="changeThirdDiskButton" layoutX="441.0" layoutY="386.0" mnemonicParsing="false" onAction="#changeThirdDisk" text="Wymiana dysku" />
+      <Button fx:id="thirdFaultButton" layoutX="457.0" layoutY="337.0" mnemonicParsing="false" onAction="#thirdFault" text="Wstrzyknij błędy" />
       <TextField fx:id="thirdFaultField" layoutX="404.0" layoutY="335.0" prefHeight="26.0" prefWidth="42.0" />
       <Label fx:id="lostDataLabel" layoutX="41.0" layoutY="184.0" text="UTRATA DANYCH!" textFill="#cd1a1a" visible="false">
          <font>
             <Font size="67.0" />
          </font>
       </Label>
+      <Label fx:id="firstDiskWarningLabel" layoutX="184.0" layoutY="325.0" text="!" textFill="#ed0c0c" visible="false">
+         <font>
+            <Font size="33.0" />
+         </font>
+      </Label>
+      <Label fx:id="secondDiskWarningLabel" layoutX="382.0" layoutY="325.0" text="!" textFill="#ed0c0c" visible="false">
+         <font>
+            <Font size="33.0" />
+         </font>
+      </Label>
+      <Label fx:id="thirdDiskWarningLabel" layoutX="573.0" layoutY="325.0" prefHeight="50.0" prefWidth="10.0" text="!" textFill="#ed0c0c" visible="false">
+         <font>
+            <Font size="33.0" />
+         </font>
+      </Label>
+      <Button fx:id="resetButton" layoutX="485.0" layoutY="44.0" mnemonicParsing="false" onAction="#reset" text="Reset dysków" />
    </children>
 </AnchorPane>

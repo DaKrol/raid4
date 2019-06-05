@@ -1,0 +1,140 @@
+Wykorzystany plik wejsciowy: input.txt
+
+Dane odczytane z pliku: 11100001100000010000000111101000110010001
+
+Dane uzyte w programie: 111000011000000100000001111010001100100010000000
+
+Zawartosc dysku 1:  111010000000111011001000
+
+Zawartosc dysku 2:  000100010001100010000000
+
+Zawartosc dysku 3:  111110010001011001001000
+
+Liczba wstrzyknietych bledow na dysku 1:  3
+
+Dysk 1 po wstrzyknieciu bledow:  1110100000XX111011001X00
+
+Liczba wstrzyknietych bledow na dysku 2:  5
+
+Dysk 2 po wstrzyknieciu bledow:  0X0100XX000X1000100000X0
+
+Liczba wstrzyknietych bledoww na dysku 3:  2
+
+Dysk 3 po wstrzyknieciu bledow:  X111100100010110010010X0
+
+Zawartosc dysku 1 po odzyskaniu danych: 11101000000X111011001000
+
+Zawartosc dysku 2 po odzyskaniu danych: 00010001000X1000100000X0
+
+Zawartosc dysku 3 po odzyskaniu danych: 1111100100010110010010X0
+
+UTRACONE DANE!!!
+
+RESET DANYCH!
+
+Wykorzystany plik wejsciowy: input.txt
+
+Dane odczytane z pliku: 11100001100000010000000111101000110010001
+
+Dane uzyte w programie: 111000011000000100000001111010001100100010000000
+
+Zawartosc dysku 1:  111010000000111011001000
+
+Zawartosc dysku 2:  000100010001100010000000
+
+Zawartosc dysku 3:  111110010001011001001000
+
+Zawartosc dysku 1 po wymianie: XXXXXXXXXXXXXXXXXXXXXXXX
+
+Zawartosc dysku 1 po odzyskaniu danych: 111010000000111011001000
+
+Zawartosc dysku 2 po odzyskaniu danych: 000100010001100010000000
+
+Zawartosc dysku 3 po odzyskaniu danych: 111110010001011001001000
+
+Zawartosc dysku 2 po wymianie: XXXXXXXXXXXXXXXXXXXXXXXX
+
+Zawartosc dysku 1 po odzyskaniu danych: 111010000000111011001000
+
+Zawartosc dysku 2 po odzyskaniu danych: 000100010001100010000000
+
+Zawartosc dysku 3 po odzyskaniu danych: 111110010001011001001000
+
+Zawartosc dysku 3 po wymianie: XXXXXXXXXXXXXXXXXXXXXXXX
+
+Zawartosc dysku 1 po odzyskaniu danych: 111010000000111011001000
+
+Zawartosc dysku 2 po odzyskaniu danych: 000100010001100010000000
+
+Zawartosc dysku 3 po odzyskaniu danych: 111110010001011001001000
+
+Zawartosc dysku 1 po wymianie: XXXXXXXXXXXXXXXXXXXXXXXX
+
+Liczba wstrzyknietych bledow na dysku 2:  5
+
+Dysk 2 po wstrzyknieciu bledow:  0001X0010X01XX001000X000
+
+Zawartosc dysku 1 po odzyskaniu danych: 1110X0000X00XX101100X000
+
+Zawartosc dysku 2 po odzyskaniu danych: 0001X0010X01XX001000X000
+
+Zawartosc dysku 3 po odzyskaniu danych: 111110010001011001001000
+
+UTRACONE DANE!!!
+
+RESET DANYCH!
+
+Wykorzystany plik wejsciowy: input.txt
+
+Dane odczytane z pliku: 11100001100000010000000111101000110010001
+
+Dane uzyte w programie: 111000011000000100000001111010001100100010000000
+
+Zawartosc dysku 1:  111010000000111011001000
+
+Zawartosc dysku 2:  000100010001100010000000
+
+Zawartosc dysku 3:  111110010001011001001000
+
+Zawartosc dysku 3 po wymianie: XXXXXXXXXXXXXXXXXXXXXXXX
+
+Zawartosc dysku 2 po wymianie: XXXXXXXXXXXXXXXXXXXXXXXX
+
+Zawartosc dysku 1 po odzyskaniu danych: 111010000000111011001000
+
+Zawartosc dysku 2 po odzyskaniu danych: XXXXXXXXXXXXXXXXXXXXXXXX
+
+Zawartosc dysku 3 po odzyskaniu danych: XXXXXXXXXXXXXXXXXXXXXXXX
+
+UTRACONE DANE!!!
+
+RESET DANYCH!
+
+Wykorzystany plik wejsciowy: input.txt
+
+Dane odczytane z pliku: 11100001100000010000000111101000110010001
+
+Dane uzyte w programie: 111000011000000100000001111010001100100010000000
+
+Zawartosc dysku 1:  111010000000111011001000
+
+Zawartosc dysku 2:  000100010001100010000000
+
+Zawartosc dysku 3:  111110010001011001001000
+
+Zawartosc dysku 3 po wymianie: XXXXXXXXXXXXXXXXXXXXXXXX
+
+Liczba wstrzyknietych bledow na dysku 1:  3
+
+Dysk 1 po wstrzyknieciu bledow:  X1X010000000111011X01000
+
+Zawartosc dysku 1 po odzyskaniu danych: X1X010000000111011X01000
+
+Zawartosc dysku 2 po odzyskaniu danych: 000100010001100010000000
+
+Zawartosc dysku 3 po odzyskaniu danych: X1X110010001011001X01000
+
+UTRACONE DANE!!!
+
+RESET DANYCH!
+
